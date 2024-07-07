@@ -1,4 +1,4 @@
-## Datatypes
+****## Datatypes
 **INT**
 ``INT(11)`` : Specifies the number of numbers given in this case eleven
 **BIGINT**
@@ -135,3 +135,56 @@ SELECT username, email FROM userdetails WHERE id = 1;
 ```
 SELECT * FROM userdetails WHERE id = 4;
 ```
+
+## WHERE 
+The where clause is used to specify a condition
+Example:
+```
+SELECT * FROM expenses WHERE amount > 50;
+```
+retrieve records in with the amount is greater than 50
+One can also use comparison operators and wildcards.
+Example of comparison operators
+|  Operator | Meaning |
+| ----------| ----------|
+|      =         |  equal     |
+|      >         |  greater than |
+|      <         | less than |
+|     <=        | less than or equal to|
+|      >=       |  greater than or equal to|
+
+Example of Logical operators
+| Operator | Meaning |
+|   AND   | both condition need to be TRUE | 
+|   OR      | one conditions need to be TRUE |
+|   NOT   | exclude given value and return Opposite |
+
+Example
+```
+SELECT * FROM expenses WHERE date >= "2024-07-01" AND date <= "2024-09-01";
+```
+``
+```
+SELECT * FROM expenses WHERE description LIKE "%office supplies%";
+```
+
+```
+SELECT * FROM EXPENSES WHERE category="rent" OR category="groceries";
+```
+
+## ORDER BY
+the order by clause is used to organize records or retrieved records for easy readability or clarity
+Syntax:
+```
+SELECT column1,column2,.,.
+FROM tableName
+WHERE (condition), (optional)
+ORDER BY columnName ASC/DESC
+```
+ASC = ascending
+DESC = descending
+```
+SELECT * FROM expenses ORDER BY date DESC
+```
+display records recent records added will be first in the table
+

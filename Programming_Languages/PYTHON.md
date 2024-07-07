@@ -5,27 +5,6 @@ import json
 with open("file_location", "r") as file:
 		data_dict = json.load(file)
 ```
-
-## Conversion of characters to uppercase, lowercase, capitalize
-to convert into uppercase:
-```
-def upperCase(mystring):
-	if type(mystring) == str:
-	mystring = mystring.upper()
-```
-to convert to lowercase:
-```
-def lowerCase(mystring):
-	if type(mystring) == str:
-	mystring = mystring.lower()
-```
-to capitalize each word in a string
-```
-def capitalize(mystring):
-	if type(mystring) == str:
-		mystring = mystring.title()
-```
-
 ## Dictionaries
 a built in data structure that stores values using key:value pairs. The keys are immutable, must be unique and the values are mutable(can be changed).
 ```
@@ -170,11 +149,33 @@ print(True * 100) # 100
 ```
 ***Strings***
 Strings is a data type that contains multiple or single characters, numbers or alphanumeric characters. Normally placed inside double quotations.
+Strings are immutable as compared to lists whose values can be changed.
 ```
 mystring = "abc"
 print(mystring)
 print(type(mystring))
 ```
+**string methods**
+### Conversion of characters to uppercase, lowercase, capitalize
+to convert into uppercase:
+```
+def upperCase(mystring):
+	if type(mystring) == str:
+	mystring = mystring.upper()
+```
+to convert to lowercase:
+```
+def lowerCase(mystring):
+	if type(mystring) == str:
+	mystring = mystring.lower()
+```
+to capitalize each word in a string
+```
+def capitalize(mystring):
+	if type(mystring) == str:
+		mystring = mystring.title()
+```
+
 ## Round() method
 The round() method is used to round-off numbers to the given decimal places
 It takes 2 arguments :
@@ -227,4 +228,28 @@ print(viking_song)
 ```
 print(min(10,7,9,11))
 print(max(120,10,1))
+```
+
+## Backslash character
+the backslash character is used as an escape character
+`` \ ``
+
+## Multiple assignment of data
+Python enables us to assign multiple values to a variable
+Example:
+```
+a = 10
+b = 20
+a, b = b, a
+```
+
+##  Methods and attributes
+Methods and attributes are different. In python, objects are instances of classes since Python programming language is a OOP(object oriented programming language).
+a method is a function that is attached to an object. 
+Example :
+
+upper() : convert all characters in a string to uppercase
+```
+name = "John Doe"
+print(name.upper())
 ```
