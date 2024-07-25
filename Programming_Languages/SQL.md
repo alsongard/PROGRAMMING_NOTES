@@ -1,4 +1,5 @@
-****## Datatypes
+## Datatypes
+
 **INT**
 ``INT(11)`` : Specifies the number of numbers given in this case eleven
 **BIGINT**
@@ -24,9 +25,11 @@ the varchar is mostly used for usernames, password
 **TEXT**
 The text data type is used to insert a paragraph or several lines of statements such as recommendation, blogs.
 
-**DATE**
-**DATETIME**
-
+**DATE and Time**
+DATE : A date in the format YYYY-MM-DD.
+DATETIME(fsp): Combination of both date and time in the same way the words are combined. Format YYYY-MM-DD HH:MM:SS
+TIMESTAMP: timestamp in the format YYYY-MM-DD HH:MI:SS
+TIME(fsp)
 
 ## Creating a table
 ```
