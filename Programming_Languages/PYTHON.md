@@ -253,3 +253,5 @@ upper() : convert all characters in a string to uppercase
 name = "John Doe"
 print(name.upper())
 ```
+
+pluto_mass = 1.303 

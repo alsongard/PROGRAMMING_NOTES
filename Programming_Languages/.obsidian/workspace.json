@@ -8,36 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f2da0cd4a3c1e206",
+            "id": "c5653f8a036eaa81",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HTML.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           },
           {
-            "id": "eeeeb18157ebf447",
+            "id": "613045544ade1235",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SQL.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6fbac9eb8874de39",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "PIP.md",
+                "file": "REACT.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6da6049bced56449",
@@ -110,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SQL.md",
+                "file": "REACT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SQL.md",
+                "file": "REACT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SQL.md"
+                "file": "REACT.md"
               }
             }
           }
@@ -172,19 +157,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "eeeeb18157ebf447",
+  "active": "613045544ade1235",
   "lastOpenFiles": [
+    "DATA_ANALYSIS.md",
     "PYTHON.md",
+    "HTML.md",
+    "SQL.md",
+    "C++ PROGRAMMING.md",
     "PIP.md",
     "NUMPY.md",
     "DJANGO WEB FRAMEWORK.md",
-    "HTML.md",
     "JAVASCRIPT.md",
     "Event.md",
     "Linux Commands.md",
     "Linux Scripting.md",
     "PHP.md",
-    "SQL.md",
     "STACK SNIPPETS.md",
     "REACT.md",
     "2024-05-30.md",

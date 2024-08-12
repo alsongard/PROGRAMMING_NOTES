@@ -10,7 +10,7 @@ An example is show below:
 function TouristComponent(props){
 return (
 	<section className="touristInfo">
-		<div class="imageHolder">
+		<div className="imageHolder">
 			<img src={prop.imageUrl} alt={prop.altImage}/>
 		</div>
 		<div className="location-Data">

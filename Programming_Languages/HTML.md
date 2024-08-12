@@ -23,3 +23,6 @@ The form is used to gather information from the user and submit/transfer these d
 </form>
 ```
 The `textarea` is used to enter comments or blogs, about yourself in a form
+
+
+The fractional unit can be used to resize the items of a grid container depending on their size.
