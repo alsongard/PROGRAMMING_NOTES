@@ -44,3 +44,18 @@ each of the above super global has it's own function.
 
 ### Concatenation of variables and strings
 
+```
+$name = "Linux Ubuntu"
+echo "Hello there Mr. " . $name; 
+```
+
+## Updating data in the database from website
+
+```
+UPDATE tableName SET columName = $varialbeName, columName = $varialbeName,   WHERE id = $variableName;
+
+//submit data
+//use prepeare statement
+//bindParam
+
+```
