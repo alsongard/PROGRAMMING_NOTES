@@ -59,3 +59,54 @@ UPDATE tableName SET columName = $varialbeName, columName = $varialbeName,   WHE
 //bindParam
 
 ```
+
+
+
+### SESSIONS
+sessions is a unique way for a browser to identify the client. Usefull many clients/users for your website.
+To use session use the following syntax.
+```
+<?php
+    session_start()
+?>
+``` 
+
+Setup config.php file used for setting the session paramets:
+```
+<?php
+    init.set("session.use_only_cookies", 1);
+    init.set("session.use_strict_mode", 1);
+
+//setting session parameters
+session_set_cookie_params([
+    "lifetime"=>1800,
+    "domain"=>"localhost", //set the domain of your website, godaddy, mylifepathway
+    "path"=>"/",
+    "secure"=>true, //ensure connection is htttps (secure only)
+    "httponly"=>true // ensure no scripting can be performed on the client side
+]);
+
+session_start(); // add the below function to enhance security of the session
+session_regenate_id(true); //regenerate a new id for the current id, add security as attackers stolen id are not used
+```
+
+// checks if session is regenerated and if not regenerate. if regenerated check if it's greater than the given interval, if greater regenerate session_id.
+
+```
+session_start();
+$interval = 60 * 30;
+if (!isset($_SESSION["last_regeneration"]))
+{
+    //false execute below
+    session_regenerate_id(true);
+    $_SESSION["last_regeneration"]  = time();
+}else
+{
+    $interval = 60 * 30;
+
+    if (time() - $_SESSION["last_regeneration"] >= $interval)
+    {
+        session_regeneration_id(true);
+        $_SESSION["last_regeneration] = time();
+    }
+}
