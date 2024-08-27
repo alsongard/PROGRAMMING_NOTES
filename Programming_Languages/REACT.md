@@ -1,7 +1,8 @@
-
+****
 ## Initializing a React App
-
-
+```
+npx create-react-app nameofapp
+```
 
 ## Using props
 to use props define your function or module and pass in an argument. After passing an argument, use the argument name e.g prop.data-item-name. Ensure that the data item name is same to what you pass in the `index.js` file.
@@ -15,12 +16,12 @@ return (
 		</div>
 		<div className="location-Data">
 			<div className="location">
-			<p>{prop.locationName}</p>
+				<p>{prop.locationName}</p>
 			</div>
 			<h2>{prop.title}</h2>
 			<div className="dates">
-			<p>{prop.startDate}</p>
-			<p>{prop.endDate}</p>
+				<p>{prop.startDate}</p>
+				<p>{prop.endDate}</p>
 			</div>
 			<p>{prop.description}</p>
 		</div>
@@ -37,12 +38,12 @@ function TouristPage(){
 	return(
 		<TouristComponent
 			imageUrl="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-		locationName="United Arab Emirates"
-		title="Dubai"
-		googleMapsUrl=""
-		startDate="13 Dec, 2022"
-		endDate="29 Dec, 2022"
-		description="Dubai is a city and emirate in the United Arab Emirates             known for luxury shopping, ultramodern architecture and a lively   nightlife scene."
+			locationName="United Arab Emirates"
+			title="Dubai"
+			googleMapsUrl=""
+			startDate="13 Dec, 2022"
+			endDate="29 Dec, 2022"
+			description="Dubai is a city and emirate in the United Arab Emirates             known for luxury shopping, ultramodern architecture and a lively   nightlife scene."
 		/>
 	)
 }
@@ -100,4 +101,47 @@ function Header(){
 }
 ```
 If its a link provide directly to the source attribute of the image.
- 
+
+## Add ``css`` file to your ``js`` component folder
+Use import statement as shown below:
+```
+import "../css/profile-main-component.js"
+```
+
+## Using react icons 
+To use react icons install the following
+```
+npm  install react-icons --save
+```
+
+```
+import {FaPhone} from "react-icons/fa6";
+
+function CardComponent()
+{
+	return (
+		<div>
+			<FaPhone/>
+		</div>
+	)
+}
+```
+
+## Object destructing
+Similar to props
+```
+object destructuring in React
+const person = {
+	img: "file_path",
+	name: "Mr. whiskerson",
+	phone: "(220) 123-977-413",
+	email: "whiskerson@gmail.com"
+}
+function Contact({img, name, phone, email})
+{
+	<img src={img}/>
+	<h3>{name}</h3>
+	<p>{phone}</p>
+	<p>{email}</p>
+}
+```

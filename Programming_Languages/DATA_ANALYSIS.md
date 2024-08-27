@@ -16,3 +16,5 @@ filtered_data = data_df.isna().any(axis=1) #capture rows only
 filtered_data_df = data_df[filtered_data]
 print(filterd_data_df)
 ```
+
+

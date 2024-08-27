@@ -21,14 +21,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "REACT.md",
+                "file": "DATA_ANALYSIS.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "789825c6ff968296",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "streamlit.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -95,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "REACT.md",
+                "file": "streamlit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "REACT.md",
+                "file": "streamlit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "REACT.md"
+                "file": "streamlit.md"
               }
             }
           }
@@ -157,23 +169,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "613045544ade1235",
+  "active": "789825c6ff968296",
   "lastOpenFiles": [
     "DATA_ANALYSIS.md",
+    "streamlit.md",
     "PYTHON.md",
-    "HTML.md",
-    "SQL.md",
-    "C++ PROGRAMMING.md",
+    "JAVASCRIPT.md",
+    "REACT.md",
+    "Event.md",
     "PIP.md",
+    "RULES IN PROGRAMMING.md",
+    "SQL.md",
+    "HTML.md",
+    "C++ PROGRAMMING.md",
     "NUMPY.md",
     "DJANGO WEB FRAMEWORK.md",
-    "JAVASCRIPT.md",
-    "Event.md",
     "Linux Commands.md",
     "Linux Scripting.md",
     "PHP.md",
     "STACK SNIPPETS.md",
-    "REACT.md",
     "2024-05-30.md",
     "Untitled",
     "METHODS.md",

@@ -1,5 +1,5 @@
 ### TABLE OF CONTENTS
-[Events](Event listeners)
+
 
 
 ## conversion of char/strings to uppercase and lowercase
@@ -40,7 +40,7 @@ myArray = [1,2];
 console.log(myArray + "1"); //result 1, 21
 
 ```
-Because the array is converted to a string using toString() and then concatenated to the string "1".
+Because the array is converted to a string using ``toString()`` and then concatenated to the string "1".
 
 
 # Event listeners
@@ -49,3 +49,61 @@ Because the array is converted to a string using toString() and then concatenate
 
 ## IIFE
 Immediately invoked function expression 
+
+## Changing css style  
+To change the style of an element use the following syntax:
+1. Using style :
+``elementVariableName.style.property = "value";``
+
+Example:
+```
+let myImage = document.querySelector(".myImage");
+myImage.style.opacity = "0.7";
+```
+
+2. ``Classlist`` methods:
+**using the add() methods:** 
+```
+<style>
+.myParagraph{
+	padding:10px;
+	background:liear-gradient(to right, red,blue);
+}
+</style>
+<body>
+<p id="myPara">Hello there.. welcome to javascript</p>
+<button onclick="changeStyle()">Click me to change style of paragraph above</button>
+<script>
+	let myParagraph = document.getElementById("myPara");
+	function changeStyle(){
+		myParagraph.classlist.add("myParagraph");
+	}
+<script>
+</body>
+```
+
+**remove classList methods**
+```
+<script>
+	let myParagraph = document.querySelector(".myPara");
+	myParagraph.classList.remove("myStyle");
+</script>
+```
+
+**toggle method**
+How to change the style of the element using  toggle method:
+```
+<script>
+	let new_paragraph = document.querySelector(".new_paragraph");
+	new_paragraph.classList.toggle("myParaStyle");
+</script>
+```
+
+**tenary operations**
+Syntax :
+```
+let isGoingOut = true;
+let answer = isGoingOUt === true ? "Yes" : "No";
+console.log(answer);
+```
+

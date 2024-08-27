@@ -26,3 +26,9 @@ The `textarea` is used to enter comments or blogs, about yourself in a form
 
 
 The fractional unit can be used to resize the items of a grid container depending on their size.
+
+## Text-underline
+To add space in between the underline and the text property use ``text-underline-offset`` property.
+```
+<h1 style="text-decoration:underline; text-underline-offset=5px">Global</h1>
+```
