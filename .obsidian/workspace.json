@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "cf377c0d9196a106",
+        "id": "24b7fac1e624eefc",
         "type": "tabs",
         "children": [
           {
-            "id": "9a36f41417a1d057",
+            "id": "014feef37feba86c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programming_Languages/SQL.md",
+                "file": "free_code_camp/JAVASCRIPT.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "708b4a503e346ec6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "node.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programming_Languages/SQL.md",
+                "file": "node.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programming_Languages/SQL.md",
+                "file": "node.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Programming_Languages/SQL.md"
+                "file": "node.md"
               }
             }
           }
@@ -146,6 +159,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9a36f41417a1d057",
-  "lastOpenFiles": []
+  "active": "708b4a503e346ec6",
+  "lastOpenFiles": [
+    "node.md",
+    "free_code_camp/JAVASCRIPT.md",
+    "Untitled 1.md",
+    "Untitled.md",
+    "Programming_Languages/PHP.md",
+    "Programming_Languages/JAVASCRIPT.md",
+    "Programming_Languages/REACT.md",
+    "free_code_camp/JAVASCRIPT30dys.md",
+    "Programming_Languages/HTML.md",
+    "Programming_Languages/PYTHON.md",
+    "Programming_Languages/SQL.md",
+    "free_code_camp/Welcome.md"
+  ]
 }

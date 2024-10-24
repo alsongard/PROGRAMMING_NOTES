@@ -255,3 +255,20 @@ print(name.upper())
 ```
 
 pluto_mass = 1.303 
+
+
+## Setting up a python virtual environment
+Setting up python virtual environment using venv module  is the most preferred.   Other tools to set up virtual environment in python are ``virtualvenv`` and ``conda``.
+
+To setup python venv virtual environment use the following command:
+``python3 -m venv venv`` execute the command in the folder of your project
+To activate the venv environment, ensure you are in the folder in which you created your virtual environment
+```
+cd Python_Virtual_Environment
+source venv/bin/activate
+```
+After this the prompt in your terminal will start with (venv)
+Now you can install external dependencies for your project such as ``opencv``
+``python3 -m pip install package_name``
+``python3 -m pip install opencv``
+To deactivate the virtual environment use ``deactivate`` command.
