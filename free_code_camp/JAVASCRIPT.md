@@ -134,4 +134,25 @@ while (i < 10)
 1. Equality Operators
    ``==`` : used to check if given values are equal
    ``===`` : Strict equality operator that is used to check if the given values are equal and of the same data type. Most preferred equality operator to be used.
-   
+
+
+## Form submission using JS
+One can submit data from a form using JS
+```
+<form id="form">
+	<input type="text" name="firstName" />
+	<input type="text" name="secondName"/>
+	<input type="submit" value="submit"/>
+</form>
+<script type="text/javascript">
+	let myForm = document.getElementById("form");
+	myForm.addEventListener("submit", (event)=>{
+		event.preventDefault();
+		console.log(event); // check the properties of the event
+		const formElements = event.target.elements;
+		//perform object destructuring
+		const {firstName, secondName} = formElement;
+		
+	})
+</script>
+```
