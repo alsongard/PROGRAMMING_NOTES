@@ -130,7 +130,7 @@ function CardComponent()
 ## Object destructing
 Similar to props
 ```
-object destructuring in React
+// object destructuring in React
 const person = {
 	img: "file_path",
 	name: "Mr. whiskerson",
@@ -143,5 +143,119 @@ function Contact({img, name, phone, email})
 	<h3>{name}</h3>
 	<p>{phone}</p>
 	<p>{email}</p>
+}
+```
+
+## Working with forms in React
+When working with forms in React, we use ``useState()`` and each time the user types in  into the input, the const variable is updated.
+Example:
+```
+function Forms(){
+	const [formData, setFormData] = React.useState();
+	function handleChange(event){
+		console.log(event);
+	}
+	return (
+		<form>
+			<input type="text" onChange={handleChange}/>********
+		</form>
+	)
+}
+```
+
+The **``onChange``** is a input handler that takes in a function. Mostly used to update an object or string stateObject.  This will be shown in the following examples:
+Example 1: A form with a single input
+```
+function Form1(){
+	const [firstName, setFirstName] = React.useState("");
+	function handleChange(event){
+		setFirstName(()=>{
+			const newUserName = event.target.value;
+			return newUserName;
+		})
+		//or 
+		setFirstName(event.target.value);
+	}
+	return (
+		<div>
+			<form>
+				<input type="text" onChange={handleChange}/>
+			</form>
+		</div>
+	)
+}
+```
+Example 2: A form with multiple input
+```
+function Form2(){
+	const [firstName, setFirstName] = React.useState("");
+	const [secondName, setSecondName] = React.useState("");
+
+	function firstNameHandle(){
+		setFirstName(event.target.value);
+	}
+	function secondNameHandle(){
+		setSecondName(event.target.value);
+	}
+	return (
+		<div>
+			<form>
+				<input type="text" onChange={firstNameHandle}/>
+				<input type="text" onChange={secondNameHandle}/>
+			</form>
+		</div>
+	)
+}
+```
+
+Example 3: Working with textarea input. The textarea input is a self closing element in React and it takes on the ``value={} ``  which is used to tell the input element what to display and name property that has to be similar to that in the object and ``onChange={}``  function for handling input when data is entered.
+
+```
+function CollectData(){
+	const [formData, setFormData] = React.useState({
+		firstName: "",
+		secondName: "",
+		age: "",
+		comment: ""
+	});
+
+	return (
+		<div>
+			<form>
+				<input type="text" name="firstName" value={formData.firstName} onChange={handleChange}/>
+				<input type="text" name="secondName" value={formData.secondName} onChange={handleChange}/>
+				<input type="number" name="age" value={formData.age} onChange={handleChange}/>
+				<textarea value={formData.comment} name="comment" onChange={handleChange} /> 
+			</form>
+		</div>
+	)
+}
+```
+
+## Links in React
+In React in order to link pages we use the Link Component. 
+
+### Styling link component
+To style the link component assign it a ``className`` and apply the styles to the class in your css file.
+Example:
+```
+<ul className="relative">
+	<li><Link className="myLinks" to="/">Home</Link></li>
+</ul>
+```
+
+my Css file: using tailwind css framework
+```
+.myLinks{
+	@apply text-[17px] text-red-400;
+}
+.myLinks::after{
+	content: "",
+	position:absolute;
+	bottom:0;
+	height:3px;
+	background-color:aqua;
+	
+	
 }
 ```
