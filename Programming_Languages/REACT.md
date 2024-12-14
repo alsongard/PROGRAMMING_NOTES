@@ -1,4 +1,4 @@
-****
+  ****
 ## Initializing a React App
 ```
 npx create-react-app nameofapp
@@ -259,3 +259,6 @@ my Css file: using tailwind css framework
 	
 }
 ```
+
+## setting dark mode in React
+To set dark mode in your web application or website use the following:
