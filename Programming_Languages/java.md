@@ -1,4 +1,4 @@
-# java notes
+********# java notes
 
 1. package name
 a package name should be unique and written in domain name in reverse.
@@ -249,3 +249,92 @@ Different types of scanners
 
 
 ## for loops
+To use for loops follow the following Syntax:
+```
+for (int varialbe; condition; increment/decreemnt)
+{
+	Action/Execute;
+}
+```
+example:
+```
+for(int i=0; i < 10; i++)
+{
+	System.out.println(i);
+}
+```
+
+or:
+```
+int[] myArray = {1, 2, 3, 5, 7, 9, 11, 13, 17, 19, 23, 29};
+count = 0;
+for(int element:myArray)
+{
+	System.out.println("index  " + count + ":" +  element);
+}
+```
+
+``break;`` : it is used to stop the iteration in a for or a while loop.
+
+
+
+## sets
+A set is a collection of unordered elements which are unique. 
+a set only has unique numbers, it has no definite length such as how an array can have. ``String[] names = String[7]``.
+
+```
+Set<integer> t = new HashSet<Integer>();
+```
+
+Syntax: 
+``keyWord(Set) <Datatype>(integer/string..) variableName= new Hashset <Datatype>();
+``Set <String> users = new Hashset <String>();``
+
+To add things to a set:
+```
+
+users.add("John");
+users.add("Jim");
+users.add("James");
+users.add("Joeh");
+users.add("Joeh");
+users.remove("Joeh"); // used to remove an item in  a set
+System.out.println(users);
+
+boolean x = users.contains("James"); // checks for the element in the array return boolean
+```
+
+Set methods:
+
+| Method                 | Operation                                   |
+| ---------------------- | ------------------------------------------- |
+| setName.remove(item)   | Remove an item from set                     |
+| setName.contains(item) | check if item exist in set & return boolean |
+| setName.isEmpty()      | checks if set is empty                      |
+| setName.clear()        | clear set , remove everything               |
+| setName.size()         | return the number of items in the set       |
+
+``HashSet`` : standard set
+``TreeSet`` : ordered unique elements in a tree data structure
+``LinkedHashSet`` :  
+
+## ArrayLists
+
+ Syntax: 
+ `` ArrayList<dataType> varialbeName = new ArrayList<dataType>();``
+ 
+ .add(a) : add value(a) to ``arrayList``
+ .get(a) : return value(a) at given index
+ .set(a, b) : at the given index(a) set to value(b)
+
+```
+ArrayList<Integer> myNumbers = new ArrayList<Integer>();
+t.add(1); // add integer to list
+t.get(0); // get value at index 0
+t.add
+
+// set something at a given index
+t.set(1, 5); //(index, value)
+```
+
+## Maps & HaspMaps
