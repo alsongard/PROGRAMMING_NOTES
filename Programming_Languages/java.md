@@ -1,4 +1,4 @@
-********# java notes
+# java notes
 
 1. package name
 a package name should be unique and written in domain name in reverse.
@@ -337,4 +337,70 @@ t.add
 t.set(1, 5); //(index, value)
 ```
 
-## Maps & HaspMaps
+## Maps 
+there are 3 types of maps:
+tree map
+hash map
+linked hash map
+
+map is a key value pair similar to dictionaries in python
+Hash Maps
+hash maps have no order. if key values are repeated and have new values, this replace the new value.
+```
+Map m = new HashMap();
+m.put(11, 999);
+m.put("tim", 200);
+m.put("jeo", 300);
+
+System.out.println(m);
+```
+
+Tree Maps
+in a tree maps the key data types have to be the same. This keys are sorted when accessing them.
+```
+Map t = new TreeMap();
+t.put(4, "Mars");
+t.put(5, "Jupiter");
+t.put(6, "Uranus");
+
+System.out.println(t);
+```
+
+Linked Hash Maps
+in linked hashmaps, the key pair value is stored in the order in which they are written.
+
+```
+Map l = new LinkedHashMap();
+
+l.put("Manager", "Margaret");
+l.put("CEO", "James Cameroon");
+l.put("secretary", "Dona Tovalds");
+
+System.out.println(l);
+
+```
+
+
+## Functions
+
+*Note : the following function is in the file and in the main class *
+```
+public static void hello(string name)
+{
+	System.out.println("Hello " + name);
+}
+
+```
+
+In main function call the function as show below:
+```
+public static void main(String[] args)
+{
+	hello("Earth");
+}
+```
+
+## Classes
+### Class Attributes
+private :  attributes that have private attribute can only be accessed within that class they're defined with.
+this is used to reference attributes of a class.
