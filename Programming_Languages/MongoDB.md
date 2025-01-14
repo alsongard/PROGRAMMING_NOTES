@@ -116,3 +116,8 @@ $and : logical operator and return if both conditions are met
 
 $or : return data/document at-least one condition evaluates to true
 ``db.students.find({$or:[{age:{$gt:20}}, {year:{$gt:2000}}]})``
+
+$nor : return if both conditions evaluate to false
+``db.students.find({$nor:[{success:true}, {age:{$gt:80}}]})``
+``db.students.find({age:{$not:{$gte:30}}})`` 
+the benefit of using the $not operator it also checks for null values.
