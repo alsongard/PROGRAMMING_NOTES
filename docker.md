@@ -4,13 +4,13 @@ To start of docker daemon use the following command:
 ``sudo systemctl stop docker.socket``
 run the command to confirm if its running:
 ``docker ps`` : (result)
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+``CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES``
 if not running get message:
 ``Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?``
 
 
 **Docker images:**
-= docker image is a template for creating an environment of your choice.
+- docker image is a template for creating an environment of your choice.
 - template for creating an environment of your choice, 
 - Snapshot
 - Has everything needed to run your apps.
@@ -22,14 +22,13 @@ In or example : nginx
 Check on website to get nginx image
 tag: latest
 
-
 To see list of  images on machine 
 ``docker images``
 
-**Docker containers**
-
-### get an image: https://hub.docker.com
-docker hub is a registry. It's a place we can donwload iamges. 
+## Docker containers
+#### get an image from
+[link]( https://hub.docker.com)
+docker hub is a registry. It's a place we can download images. 
 ``docker pull nginx``
 ``docker images``
 nginx is a web server software, reverse proxy and load parameter. 
@@ -51,7 +50,8 @@ Issue request to our container
 ``localhost:8080``
 
 To specify a port for our container use:
-``docker run -d -p 8080:80 dockerName:tag`` : ``docker run -d -p 8080:80 nginx:latest``
+Syntax : ``docker run -d -p 8080:80 dockerName:tag`` 
+Command : ``docker run -d -p 8080:80 nginx:latest``
 One can also use different ports other than 8080 such as 3000
 
 To stop a running image:
@@ -89,7 +89,7 @@ the  flag ``(-a)`` means all both running and  not running and ``(-q)`` displays
 
 To remove all images
 ``docker rm -f $(docker ps -aq)``
-
+The command above return all ids of the containers in machine
 ### How to name containers
 ``docker ps -a `` : display containers
 
@@ -120,4 +120,97 @@ docker ps --format=$FORMAT
 ## DOCKER VOLUMES
 docker volumes allow us to share data,files and folders. Volumes allow us to share data between host and containers and also between containers.
 
+if data/files are stored in a directory in local machine to host them on the docker container use the following syntax:
+``docker run  --name bootstrap /some/content:/usr/share/nginx/html:ro  -d -p 5000:80 nginx 
+The ``ro`` stands for read only
+any changes made to the file in the docker will be reflected to the original file in the local machine and vice versa.
+Make changes to the file in the docker container do the following:
+```
+docker exec -it website bash
+```
 
+
+**How to share volumes between containers**
+share folder or data between 2 containers
+``docker run --name new-website  --volumes-from previosDocker -d -p 8081:80 nginx:latest`` 
+
+## Docker file
+How to build your own images by using dockerfile. 
+dockerfile is a list of steps of how to create images.
+
+Add dockerfile in a directory with your file contents:
+Dockerfile contents
+```
+# images your going to import or use
+FROM nginx:latest 
+# adding current directory files to nginx directory for hosting files
+ADD . /usr/share/nginx/html
+```
+
+Run:
+```
+docker run build --tag free:latest
+
+docker run --name codecamp -d -p 8080:80 free:latest
+```
+Go to : *localhost:8080*
+
+## building an API using nodejs
+create a directory: **user-service-api**
+```
+npm init .
+npm install express --save
+```
+
+Add the following to index.js file or create:
+```
+const express = require("express");
+const app = express();
+
+app.get("/", (request, response)=>{
+	response.send("<h1>Welcome to Express API in docker</h1>");
+})
+
+app.listen(5000, ()=>{
+	console.log("listening on port 5000");
+})
+
+```
+
+Create a Dockerfile :
+```
+FROM node:latest
+ADD . /app
+WORKDIR . /app/
+RUN npm install
+CMD node index.js
+```
+
+run the command on terminal:
+``docker build --tag user-api:latest .``
+the period character(.) represents the current directory
+
+Create a container based on the image:
+``docker run --name user-service-api -d -p 3000:5000 user-api:latest``
+
+## .dockerignore
+Add the following:
+```
+node_modules/
+Dockerfile
+.git
+```
+
+## caching and layers
+```
+
+FROM node:latest
+WORKDIR . /app/
+ADD package*.json /app/
+RUN npm install
+ADD . /app/
+CMD node index.js
+```
+
+
+## ALPINE
