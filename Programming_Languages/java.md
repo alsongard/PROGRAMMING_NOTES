@@ -204,9 +204,6 @@ String user_input = sc.next();
 
 System.out.println(user_input.equals("Hello"));
 ```
-
-
-
 ## if else if  else condition
 ```
 if (age > 10)
@@ -216,11 +213,7 @@ if (age > 10)
 ```
 
 if esle:
-
-
 if else if else: 
-
-
 ##  Arrays
 
 
@@ -403,4 +396,161 @@ public static void main(String[] args)
 ## Classes
 ### Class Attributes
 private :  attributes that have private attribute can only be accessed within that class they're defined with.
+public: attributes/variables and methods that have the public access modifier are accessible to any of the child classes within and in other packages.
+protected: attributes and methods are accessible in different classes in the same package but not accessible to other packages.
+### **Access Modifier Comparison Table**
+
+|Modifier|Same Class|Same Package|Subclass (Different Package)|Other Packages|
+|---|---|---|---|---|
+|**`public`**|✔|✔|✔|✔|
+|**`protected`**|✔|✔|✔|✘|
+|**`default`**|✔|✔|✘|✘|
+|**`private`**|✔|✘|✘|✘|
 this is used to reference attributes of a class.
+
+To create a class create a new file
+
+**Constructor**
+Constructor should have the same name as that of the class an do not have a return type.
+It is a special method used to initialize objects and is called when an instance of a class is created. 
+Objects in a class can be used to access variables and methods.
+
+
+Example:
+```
+public class Book()
+{
+	String title;
+	String author;
+	// create default constructor
+	public Book()
+	{
+		System.out.println("Book Created");
+	}
+}
+```
+
+In your main.java file:
+```
+public class Main()
+{
+	public void Main()
+	{
+		Book bookObj = new Book();
+	}
+}
+```
+The moment you run this file you will get the "Book Created" string on console/terminal.
+
+There are different types of constructors, namely:
+- Default constructors
+- Parameterized  constructors
+- No-argument constructors (similar to default constructors)
+
+Parameterized constructors:
+student.java file:
+```
+class Student()
+{
+	private String studentName;
+	private String studentCourse;
+	private int studentAge;
+
+	public Student(String studentNameInput, String studentCourseInput, int studentAgeInput)
+	{
+		this.studentName = studentNameInput;
+		this.studentCourse = studentCourseInput;
+		this.studentAge = studentAgeInput;
+	}
+	public void studentInfo()
+	{
+		System.out.print("The Student details are as follows: \n" + "Student Name : " + studentName + "\nStudent Age : " + studentAge + "\nStudent Course" + studentCourse);
+	}
+}
+```
+main.java file:
+```
+class Main()
+{
+	public class Main()
+	{
+	System.out.println("Enter student name : ");
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter student Name: ")
+		String nameInput = sc.next();
+		System.out.println("Enter student course : ");
+		String courseInput = sc.next();
+		System.out.println("Enter student Age : ");
+		int ageInput = sc.nextInt();
+		Student studObj = new Student(nameInput, courseInput, ageInput);
+		studObj.StudentInfo();
+	}
+}
+```
+
+## inheritance
+inheritance is an OOP feature that enables the access of variables and methods from a parent class to a child class.
+```
+public class Cat extends Dog{
+
+	// the default constructor method should be equal to that of the Dog constructor methods
+	private String food;
+	public Cat(String name, int age, String food)
+	{
+		super(name, age);
+		this.food = food;
+	}
+}
+```
+In your main file, you can access some of the methods/function in Dog class as show below:
+```
+Cat catObj = new Cat("picky", 2, "Fish");
+catObj.speak();
+```
+
+
+## Static 
+- static attributes/variables
+- static methods
+
+static methods cannot access non-static attributes or variables
+static methods can access static variables and other static variables.
+
+Static methods and variables belong to a class and not an instance. static methods can directly access and modify static variables  because they belong to the class.
+```
+/*
+* static variables are shared accross all instances and retain their value
+*/
+
+public class StaticIntro2 {
+	static int counter = 0;
+	private int myLuckyNumber = 1;
+	public StaticIntro2()
+	{
+		System.out.println("Static variable value is : " + counter);
+		counter++;
+	}
+
+	public static void staticMethod()
+	{
+		System.out.println("Static variable: " + counter);
+		counter++;
+		System.out.println("Static variable after incrementing: " + counter);
+	}
+
+	public static void main(String[] args)
+	{
+		staticMethod();
+		StaticIntro2 object1 = new StaticIntro2();
+		// StaticIntro2 object2 = new StaticIntro2();
+		System.out.println("Value of static var is : " + counter);
+		System.out.println("Value of non-static variable is " + object1.myLuckyNumber);
+	}
+}
+```
+
+Though static methods cannot access non-static or instance variables, they can be accessed using Object referencing.
+```
+
+```
