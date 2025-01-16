@@ -208,7 +208,8 @@ function Form2(){
 }
 ```
 
-Example 3: Working with textarea input. The textarea input is a self closing element in React and it takes on the ``value={} ``  which is used to tell the input element what to display and name property that has to be similar to that in the object and ``onChange={}``  function for handling input when data is entered.
+Example 3:
+Working with ``textarea`` input. The ``textarea`` input is a self closing element in React and it takes on the ``value={} ``  which is used to tell the input element what to display and name property that has to be similar to that in the object and ``onChange={}``  function for handling input when data is entered.
 
 ```
 function CollectData(){
@@ -262,3 +263,5 @@ my Css file: using tailwind css framework
 
 ## setting dark mode in React
 To set dark mode in your web application or website use the following:
+install tailwind framework:
+in mous
