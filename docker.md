@@ -121,10 +121,12 @@ docker ps --format=$FORMAT
 docker volumes allow us to share data,files and folders. Volumes allow us to share data between host and containers and also between containers.
 
 if data/files are stored in a directory in local machine to host them on the docker container use the following syntax:
-``docker run  --name bootstrap /some/content:/usr/share/nginx/html:ro  -d -p 5000:80 nginx 
+``docker run  --name bootstrap -v /some/content:/usr/share/nginx/html:ro  -d -p 5000:80 nginx 
 The ``ro`` stands for read only
 any changes made to the file in the docker will be reflected to the original file in the local machine and vice versa.
 Make changes to the file in the docker container do the following:
+Syntax: ``docker exec -it dockerContainer bash``
+
 ```
 docker exec -it website bash
 ```
@@ -135,6 +137,8 @@ share folder or data between 2 containers
 ``docker run --name new-website  --volumes-from previosDocker -d -p 8081:80 nginx:latest`` 
 
 ## Docker file
+##  **building custom images**
+
 How to build your own images by using dockerfile. 
 dockerfile is a list of steps of how to create images.
 
@@ -148,9 +152,12 @@ ADD . /usr/share/nginx/html
 ```
 
 Run:
+Syntax: docker run build --tag imageName:tag
+``docker  build --tag append-default-nginx:latest .``
+``docker  build --tag append-alpine:latest .`` : alpine cover later
+the period(.) represent where the docker file is. Remember the docker file is used for creating custom images
 ```
-docker run build --tag free:latest
-
+docker  build --tag free:latest .
 docker run --name codecamp -d -p 8080:80 free:latest
 ```
 Go to : *localhost:8080*
@@ -158,7 +165,7 @@ Go to : *localhost:8080*
 ## building an API using nodejs
 create a directory: **user-service-api**
 ```
-npm init .
+npm init 
 npm install express --save
 ```
 
@@ -169,6 +176,7 @@ const app = express();
 
 app.get("/", (request, response)=>{
 	response.send("<h1>Welcome to Express API in docker</h1>");
+	response.status(200).end()
 })
 
 app.listen(5000, ()=>{
@@ -214,3 +222,59 @@ CMD node index.js
 
 
 ## ALPINE
+alpine reduce the size of the image.
+```
+docker pulll node:lts-alpine
+docker pull nginx:alpine
+```
+
+Example:
+In node express tutorial web app:
+Steps:
+create folder : ``express-tutorial``
+``cd express-tutorial`` and execute ``npm init (enter yes) | npm install express --save`` 
+create index.js file and copy the following:
+```
+const express = require("epxress");
+const app = express();
+
+app.get("/", (request, response)=>{
+	response.send("<h1>Welcome to express tutorial using Alpine docker image from node</h1>");
+	response.status(200).end();
+})
+```
+Create ``Dockerfile``:
+```
+FROM node:alpine
+WORKDIR /app/
+ADD . /app/
+RUN npm install
+CMD node index.js
+```
+
+Run the following command to create image: ``docker build --tag express-alpine-tutorial:latest . ``
+Run to create container: ``docker run --name express-api-tutorial -d -p 8000:5000 express-alpine-tutorial:latest``
+
+Comparing images build by default images or latest to those build using alpine, they are large compared to alpine custom images.
+
+
+## **Docker Registry**
+
+## **Docker registry**
+docker registry is a highly scalable server side application that stores and lets you distribute docker images.
+- docker registry is also used for continuous delivery and continuous integration pipeline.
+- run applications
+
+there are 2 types of Docker Registry:
+- Private
+- Public
+
+Common/Known:
+docker hub
+quay.io
+Amazon ECR
+
+To login to docker use the following: 
+``docker login``
+To push to docker registry:
+``docker puss imageName:tag``
