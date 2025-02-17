@@ -1,4 +1,4 @@
-conNode.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
+Node.js® is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
 
 ## Getting started
 Every file in javascript is considered a module and one can export the  functions and variables from one file and use them in another file. This will be shown in the example below:
@@ -341,6 +341,13 @@ const server = http.createServer((request, repsonse)=>{
     response.end()
 })
 ```
+
+### status codes
+1. [Informational responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#informational_responses) (`100` – `199`)
+2. [Successful responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses) (`200` – `299`)
+3. [Redirection messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages) (`300` – `399`)
+4. [Client error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses) (`400` – `499`)
+5. [Server error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) (`500` – `599`)
 
 **HTTP METHODS:**  
 GET : Read data 
@@ -706,7 +713,7 @@ By default when a user request a page or a resource from the server the default 
 when using static() middleware and no app.get() function  has been set to the home url ("/") route, the page displayed will be the file in the public folder.
 ``app.use(express.static(path.join(__dirname, "methods_public"))``
 
-1. Traditional Form Data Submission
+6. Traditional Form Data Submission
 Steps:
 create html file with the following
 ```
@@ -737,7 +744,7 @@ app.post("/login", (request, response)=>{
 ```
 
 
-2. Javascript Form Submission
+7. Javascript Form Submission
 when submitting data using the javascript form, we first display the details from the data.js file which contains user_names and append them to result div element. we use the ``api/people``get route.
 to submit data we use the ``app.post()`` method. we get the url using the ``await axios.post("/api/people", {name: nameValue});`` and create an object with a property ``name`` assigned the value ``nameValue``. The multiple ``console.log`` statements aid in getting the correct piece of data in the object. We use ``addEventListener`` that is set to the submit button and append the new username to the result div element. 
 

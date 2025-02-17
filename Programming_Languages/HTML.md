@@ -177,3 +177,80 @@ Example:
 <input type="radion" name="female" value="female">
 ```
 By grouping them only one radio button can be selected and it's value is sent to the back-end server.
+
+## anchor tag
+the anchor tag ``target`` attribute is used to open to open links on different tabs or frame or window based on the following values.
+
+| targetProperty | property                                              |
+| -------------- | ----------------------------------------------------- |
+| _blank         | open the link on a new window                         |
+| _self          | open on the same window                               |
+| _top           | opens the link on the current full body of the window |
+| _parent        | opens the link  in the parent frame                   |
+
+## **Box shadow**
+the box shadow property can take several values:
+``box-shadow: 10px 10px 10px black;``
+In the above line: 
+first value is used for the :horizontal
+the second value is used : :vertical
+the third value sets the : blur the higher the value the more blur will be applied
+the last value is used for specifying the shadow color for the element
+If no color is given it takes the color for the text
+
+## **animation**
+animation: animations are used to change the style of an element from one style to another.
+To use animation we must use keyframes. Keyframes define the styles and at what moment the styles change should happen
+when you specify the CSS styles inside the keyframes using @keyframes rule, the css will change from the current style to another style
+To get the animation to work you must find bind the animation to the element using the ``animation-name:`` keyword
+Example:
+
+```
+@keyframes{
+	from {background-color:red;}
+	to {background-color: yellow;}
+}
+
+div{
+	width:100px;
+	height:100px;
+	background-color:red;
+	animation-name:example;
+	animation-duration;:4s;
+}
+```
+
+- animation-duration
+The animation-duration specifies how long the animation should take to complete. If no animation-duration value is given no effect of the animation will be done as the default value is 0.
+
+In the above example we have used the ``from{}`` and ``to{}`` to change the animation. However this can also be achieved using percentage values that is
+0%, 100%. One can also add values such as 0%, 25%, 50%, 75%, 100%.
+
+- animation-delay:
+the animation-delay will delay the start of the animation. The value it takes is seconds:
+```
+	animation-delay:2s
+```
+
+Negative values are also allowed but the animation will start as if it had already started playing.
+Example: if animation duration is 10s and animation-delay is 4s. the animation will start at 6th second, however this will not change the animation duration.
+- animation-iteration-count
+animation-iteration-count specifies the number of times the animation should run. if the value is ``animation-iteration:3`` it will run 3 times.
+It there ``animation-iteration-count: infinite`` this means that it will continue to run
+
+- animation-timing-function:
+the animation-timing-function specifies the speed of the animation.
+It can take several values:
+
+| values                | description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| ease                  | animation will begin with a slow start, then fast and end slowly |
+| linear                | animation will have the same speed from the beginning to the ned |
+| ease-in               | animation with a slow start                                      |
+| ease-out              | animation witha slow end                                         |
+| ease-in-out           | animation with a slow start and end                              |
+| cubic-bezier(n,n,n,n) | Lets you define your own values in a cubic-bezier function       |
+
+### **Opacity**
+the opacity is used to set the opacity level for an element. It describes the transparency-level where 1 is not transparent and 0.5 is 50 percent see through and 0 is completely transparent.
+When applying opacity to a parent element sometimes it makes the text hard to read, to counter this it is recommended to use rgba values for the background-color of the property.

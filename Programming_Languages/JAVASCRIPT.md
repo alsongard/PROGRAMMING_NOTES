@@ -1,7 +1,5 @@
 ### TABLE OF CONTENTS
 
-
-
 ## conversion of char/strings to uppercase and lowercase
 JavaScript strings are immutable there are 2 types of methods that can be used to convert strings to uppercase
 #### Method 1 
@@ -107,3 +105,19 @@ let answer = isGoingOUt === true ? "Yes" : "No";
 console.log(answer);
 ```
 
+
+
+## setTimeOut() function
+
+the setTimeOut() takes in 2 arguments that is: a function and a time value in milliseconds.
+
+Example:
+
+```
+function myGreeting()
+{
+	console.log("Hello there my Name is : Earth");
+}
+	setTimeOut(myGreeting, 5000);
+
+```

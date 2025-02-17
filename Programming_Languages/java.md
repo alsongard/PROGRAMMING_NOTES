@@ -215,8 +215,6 @@ if (age > 10)
 if esle:
 if else if else: 
 ##  Arrays
-
-
 An odd way or odd ball of declaring arrays:
 ```
 String[] newArray = new String[7];

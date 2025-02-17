@@ -1,4 +1,4 @@
-  ****
+
 ## Initializing a React App
 ```
 npx create-react-app nameofapp
@@ -116,7 +116,6 @@ npm  install react-icons --save
 
 ```
 import {FaPhone} from "react-icons/fa6";
-
 function CardComponent()
 {
 	return (
@@ -233,8 +232,38 @@ function CollectData(){
 }
 ```
 
-## Links in React
+## **Links in React**
 In React in order to link pages we use the Link Component. 
+
+### **NavLink component**
+The NavLink component is used for setting the NavBar link which is active. 
+Example: this is shown below:
+```
+import {NavLink} from "react-router-dom"
+
+
+function Header()
+{
+	<ul className="flex flex-row">
+		<NavLink
+			to="/"
+			className={({isActive})=>
+				isActive ? "text-black" : "text-white"
+			}
+		>
+		Home
+		</NavLink>
+		<NavLink
+			to="/about"
+			className={({isActive})=>
+				isActive = "text-black" : "text-white"
+			}
+		>
+		About
+		</NavLink>
+	</ul>
+}
+```
 
 ### Styling link component
 To style the link component assign it a ``className`` and apply the styles to the class in your css file.
@@ -261,7 +290,241 @@ my Css file: using tailwind css framework
 }
 ```
 
+
+## Creating Multiple Routes for Multiple Pages 
+To create more than a single page web app in React, we use the`` react-router-dom`` module. 
+Also remember the ``Outlet`` . 
+It provides with the following and it will be explain below:
+```
+import {BrowserRouter, Routes, Route} from "react-dom-router";
+
+// in app.js file do the following:
+function App()
+{
+	return (
+		<main>
+			<BrowserRouter>
+				{/* create a nested router in which header and footer will be displayed in each page*/}
+				<Routes>
+					<Route path="/" element={<div> <Header/> <Footer/> </div>}>
+						<Route index element={<Users/>}/>
+						<Route index element={<Testing/>}/>
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</main>
+	)
+}
+```
+
+Header.js file:
+```
+// do the following
+import {Outlet} from "react-router-dom";
+function Header()
+{
+	return (
+		<div>
+			<header>
+				<ul>
+					<Link to="/"><li>Home</li></Link>
+					<Link to="/about"><li>About</li></Link>
+					<Link to="/services"><li>Services</li></Link>
+				</ul>
+			</header>
+			<Outlet/>
+		</div>
+	
+	)
+}
+```
 ## setting dark mode in React
 To set dark mode in your web application or website use the following:
-install tailwind framework:
-in mous
+install tailwind framework: go to [link](https://tailwindcss.com/docs/installation)
+Add the custom class in t``ailwind.config.css`` file:
+```
+darkMode: 'class'
+```
+
+In app.js do the following:
+```
+import React from "react";
+function App()
+{
+	const [darkMode, setDarkMode] = React.useState(false);
+	function handleChange()
+	{
+		setDarkMode((prevalue)=>{
+			return !prevValue;
+		})
+	}
+	const answer = darkMode ? "dark" : ""
+	return (
+		<div className={`${answer}`}>
+			<header className="dark:bg-slate-400">
+				<button onClick={handleChange}>Dark</button>
+			</header>
+		</div>
+	)
+}
+```
+
+```
+function Header()
+{
+		const [menuStyle, setMenuStyle] = React.useState({display: "none"})
+
+	function toggleNav()
+	{
+	setMenuStyle((prevStyle)=>({
+	display: prevStyle.display === "none" ? "flex" : "none"
+	}))
+	}
+
+return (
+	<header>
+		<ul className="max-[630px]:hidden >
+		<li>Home</li>
+		<li>About</li>
+		<li>Contact</li>
+		<li>Service</li>
+		</ul>
+		<ul style={menuStyles}>
+		<li>Home</li>
+		<li>About</li>
+		<li>Contact</li>
+		<li>Service</li>
+		</ul>
+		<button onClick={toggleNav}>NavBtn</button>
+	</header>
+)
+}
+```
+
+
+## **Complex data props and mapping**
+FileName : ``data.js``
+```
+Given the following data
+
+const games = {
+	"shooter": [
+		{
+			name: "Call of Duty",
+			description: "Best gun fighting games"
+		},
+		{
+			name: "Ghost Recod",
+			description: "Explore all ways"
+		}
+	],
+	"Powers": [
+		{
+			name: "Devil May Cry 4",
+			description: "Sword and Powers"
+		},
+		{
+			name: "Prototype",
+			description: "Run Fast, strenght, Hijack Helicopters"
+		}
+	]
+}
+export default games;
+```
+
+FileName: gameViewComponent.js
+```
+function GaveViewComponent(props)
+{
+	return(
+		<div>
+			<p>{props.item.name}</p>
+			<p>{props.item.description}
+		</div>
+	)
+}
+export default GameViewComponent;
+```
+
+FileName: gameCategoryView.js
+```
+import GameViewComponent from "";
+function GameCategoryView(props)
+{
+	const {gameType, gameData} = props;
+	return (
+		<div>
+			<h2>{gameType}</h2>
+			<GameViewComponent key={gameData.id} item={gameData}/>
+		</div>
+	
+	)
+}
+export default GameCategoryView;
+```
+
+FileName: gameProject.js
+```
+import GameCategoryView from "./";
+import data from "./data.js";
+function GameMainView()
+{
+	return (
+		<div>
+			{Object.keys(data).map((gameItem)=>(
+				<GameCategoryView gameType={gameItem} gameData={data[gameItem]}/>
+			))}			
+		</div>
+	)
+
+}
+```
+
+
+
+## **cross origin resource sharing**
+when fetching data using ``fetch()`` 
+
+
+## **React Preloader**
+to set up a preloader for your website, use the following steps:
+Step 1. Create a preloader.js file:
+```
+export default function Preloader()
+{
+	return (
+		<div className="prelaoder">
+			<div className="preloader">
+			</div>
+		</div>
+	)
+}
+```
+
+Step 2: in index.css give the following styles:
+```
+.prelaoder{
+	height:100vh;
+	width:100wv;
+	background:red;
+	display:flex;
+	justify-content:center;
+	align-item:center;
+}
+```
+
+In your mains.js file do the following:
+```
+import React from "react";
+function App()
+{
+	const [isLoading, setIsLoading] = React.useState(true);
+	return (
+		{isLoading ? (<Prelaoder>) : (
+			<main>
+				<BrowseRouter></
+			</main>
+		)}
+	)
+}
+```
