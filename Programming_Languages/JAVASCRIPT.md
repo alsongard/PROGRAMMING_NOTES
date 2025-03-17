@@ -121,3 +121,85 @@ function myGreeting()
 	setTimeOut(myGreeting, 5000);
 
 ```
+
+**Math.random()**
+the ``Math.random()`` is used to generate pseudo-random floating point numbers between `0` (inclusive) and `1` (exclusive). It does not take any arguments. However, you can manipulate its output to fit different ranges. *(by pseudo-random we mean that the values aren't entirely random, they are actually determined by a mathematical algorithm)*
+
+```
+console.log(Math.Random()); generates a floating value between 0.000.. to 0.999
+```
+
+To generate a random integer between 0 and 9:
+```
+function getRandomInt(max)
+{
+	return Math.floor(Math.random() * max)
+}
+```
+
+
+### **spread operator**
+the spread operator is used to copy elements from one array to another. 
+``` 
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const combinedArr = [...arr1, ...arr2];
+```
+
+### **arrow function**
+arrow functions are anonymous, however they can be assigned an identifier.
+```
+const printGreeting = ()=>{
+	console.log("hello there");
+}
+
+// to call the function do the following:
+printGreeting();
+```
+one calls the function by calling the variableName assigned to the arrow function..
+
+An Arrow function can have one or multiple arguments.
+if it's a single argument, one can omit the parenthesis.
+```
+const printMessage = org =>{
+	console.log(`${org} is awesome!`);
+}
+printMessage("freecodecamp");
+```
+
+arrow function can also return a value. An example is provided below:
+```
+const addTwoNumbers = (num1, num2) =>{
+	return num1 + num2;
+}
+console.log(addTwoNumbers(3,4));
+```
+
+if the body of the arrow function is performing a simple expression, one can omit the curly braces and the ``return`` keyword
+```
+const addTwoNumbers = (num1, num2) => num1 + num2;
+console.log(addTwoNumbers(3,4));
+```
+
+however if the body has multiple line of code, one is required to have both the curly braces and the return keyword.
+
+### **map()**
+he `map()` method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing array. 
+For example:
+```
+> squares_array = combinedArray.map((number)=>number ** 2)
+[
+   1,  4,  9, 16,  25,
+  36, 49, 64, 81, 100
+]
+```
+
+### **join()**
+The `join()` method is used to concatenate all the elements of an array into a single string.
+```
+> const exampleArr = ["This", "is", "a", "sentence"];
+> const sentence = exampleArr.join(" "); 
+> sentence
+'This is a sentence'
+```

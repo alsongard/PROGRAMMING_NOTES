@@ -72,3 +72,69 @@ Given students marks and you would want to filter a specific range do the follow
 ```
 student_average_df = student_df[student_df["marks"].between(5, 7.9)]
 ```
+
+## **Combining multiple datasets**
+To combine multiple datasets use:
+1. concat() method
+the concat() method takes a single argument. The dataframe to be combined are given in an array
+Example:
+```
+
+ import pandas as pd
+>>> my_student_dict ={"name": ["alson", "java", "html5"], "age":[23, 24, 25]}
+>>> my_class_b = {"name": ["nodejs", "expressjs", "mongodb"]}
+>>> print("#get each dataframe object")
+#get each dataframe object
+>>> class_b_df = pd.DataFrame(my_class_b)
+>>> class_a_df = pd.DataFrame(my_student_dict)
+>>> student_data_df =pd.concat([class_b_df, class_a_df], ignore_index=True)
+```
+
+## **To remove duplicates**
+To remove duplicates use the ``drop_duplicates()`` method which by default drops all duplicate rows. 
+```
+new_data_df = data_df.drop_duplicates()
+```
+
+### **``df.loc[]``**
+The **`df.loc[]`** method in Pandas is used for **label-based indexing** to access rows and columns of a DataFrame.
+(one can access the entire row of a given dataset and if the column is specified only the columns in the given row are returned)
+Syntax:
+```
+df.loc[row_index, column_label]
+```
+
+if no column_label is given it returns the entire columns
+Example:
+```
+>>> import pandas as pd
+>>> data = {
+...     "Name": ["Alice", "Bob", "Charlie"],
+...     "Age": [25, 30, 22],
+...     "Grade": [85, 92, 78]
+... }
+>>> data_df = pd.DataFrame(data)
+>>> data_df
+      Name  Age  Grade
+0    Alice   25     85
+1      Bob   30     92
+2  Charlie   22     78
+>>> data_df.loc[1]
+Name     Bob
+Age       30
+Grade     92
+Name: 1, dtype: object
+>>> data_df.loc[2]
+Name     Charlie
+Age           22
+Grade         78
+Name: 2, dtype: object
+>>> data_df.loc[2, ["Name", "Grade"]]
+Name     Charlie
+Grade         78
+Name: 2, dtype: object
+```
+
+## **Retrieve Maximum and Minimum Values For Entire Row**
+To retrieve the entire row for Maximum and Minimum values, we use, **`idxmax()`** and **`idxmin()`**
+

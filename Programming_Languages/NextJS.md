@@ -183,11 +183,10 @@ export default async funciton Page()
 ```
 
 The example above shows a basic server-side data fetch using the fetch API in an Asynchronous  React Server [Component](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
-
 ## fetching data from an api
-
 ```
 const data = await import("/data/data.json");
 const res = await fetch("URL");
 const data = await res.json();
 ```
+

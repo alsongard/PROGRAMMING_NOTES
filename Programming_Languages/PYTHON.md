@@ -272,3 +272,14 @@ Now you can install external dependencies for your project such as ``opencv``
 ``python3 -m pip install package_name``
 ``python3 -m pip install opencv``
 To deactivate the virtual environment use ``deactivate`` command.
+
+### **Switch case statements**
+```
+match varName:
+	case "equalToMe":
+		performAction || assignvalue
+```
+
+
+## saving machine learning model
+To save your machine learning model we use joblib or pickle. the dump method is used  to create the model and the load method is used to load the model for use. 

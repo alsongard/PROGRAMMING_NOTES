@@ -254,3 +254,71 @@ It can take several values:
 ### **Opacity**
 the opacity is used to set the opacity level for an element. It describes the transparency-level where 1 is not transparent and 0.5 is 50 percent see through and 0 is completely transparent.
 When applying opacity to a parent element sometimes it makes the text hard to read, to counter this it is recommended to use rgba values for the background-color of the property.
+
+There are 2 types of shadow effects namely:
+
+- text shadow
+
+- box shadow
+
+  
+
+# text-shadow
+In it's simplest use you can specify the horizontal shadow and vertical shadow
+syntax: ``text-shadow: horizontalValue verticalValue``
+Example:
+```
+<p style="text-shadow:0 10px">Welcome</p>
+```
+To add a Color you specify as the last value if the total values are 3;
+Syntax: ``text-shadow: horValue vertValue color``
+```
+<p style="text-shadow:2px 2px red">Good Day</p>
+```
+One can also add a blur to the text
+syntax: ``text-shadow: horValue verValue blurValue color;``
+```
+<p style="text-shadow:0 2px 5px blue">Project Mars</p>
+```
+One can also add multiple shadow effects to a text as shown:
+```
+.p{
+text-shadow: 1px 5px black, -1px -5px black, 1px 0 black, 0 -1px black;
+}
+```
+
+
+# box-shadow
+
+- to use box-shadow property in its simplest form:
+Although by default the box-shadow property takes the color of the text, you can also change the color of the box-shadow or you can also specify the text color. However when using the second option, that is the text apply the change of the color in the parent element and not the text, paragraph element
+
+example 1:
+
+```
+#firstBox
+{
+color:red;
+}
+<div id="firstBox">
+<p>I need to know now to know now can you love me again</p>
+</div>
+```
+in the example above the shadow will be red
+
+**Changing the color**
+Syntax: ``box-shadow: horValue vertValue color;``
+```
+<div style="box-shadow:10px 10px black;height:100px;width:100px;">
+</div>
+```
+
+**Blur radius**
+the blur value specifies the blur around the element. A higher value will result in a higher blur value
+
+```
+
+  
+  
+
+```
