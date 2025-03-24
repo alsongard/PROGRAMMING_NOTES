@@ -291,17 +291,16 @@ text-shadow: 1px 5px black, -1px -5px black, 1px 0 black, 0 -1px black;
 # box-shadow
 
 - to use box-shadow property in its simplest form:
-Although by default the box-shadow property takes the color of the text, you can also change the color of the box-shadow or you can also specify the text color. However when using the second option, that is the text apply the change of the color in the parent element and not the text, paragraph element
+Although by default the box-shadow property takes the color of the text, you can also change the color of the box-shadow or you can also specify the text color. However when using the second option, that is the text apply the change of the color in the parent element (div) and not the text, paragraph element. 
 
 example 1:
-
 ```
 #firstBox
 {
-color:red;
+	color:red;
 }
 <div id="firstBox">
-<p>I need to know now to know now can you love me again</p>
+	<p>I need to know now to know now can you love me again</p>
 </div>
 ```
 in the example above the shadow will be red
@@ -317,8 +316,7 @@ Syntax: ``box-shadow: horValue vertValue color;``
 the blur value specifies the blur around the element. A higher value will result in a higher blur value
 
 ```
-
-  
-  
-
+<div style="box-shadow:10px 10px 12px black;height:100px;width:100px;">
+</div>
 ```
+

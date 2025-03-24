@@ -283,3 +283,81 @@ match varName:
 
 ## saving machine learning model
 To save your machine learning model we use joblib or pickle. the dump method is used  to create the model and the load method is used to load the model for use. 
+
+
+in Python, the hashlib module is a standard module, which is preinstalled(it's installed when python is installed in a computer)
+
+The hashlib module in python required data to be in byte format becuase hashing function s operate on byte and not string
+in python string are in Unicode while hashing algorithms require data to be in raw byte format
+
+
+```
+print(data.encode())
+```
+
+To view the encoded data in Raw Bytes use:
+```
+encoded_data_list = list(encoded_data)
+print(encoded_data_list)
+```
+the ``update()`` function is used to pass the encoded data to the hash function. Also since hashing works by processing data in chunks, the ``update()`` functions enables you to add data incrementally *(instead of hashing all the data at once)* 
+
+
+the ``hexdigest()`` function is the output interface for providing the hash in hexadecimal format. One can also access the hash in binary format, though unreadable for humans, it can be usefull in low level applications. 
+The hash is represented in hexadecimal format for the following reasons:
+- readability
+- compact represantation
+- standard in cryptography
+
+```
+data_hash = sha256_hash_object.hexdigest()
+```
+to view in binary:
+```
+data_hash_binary_format = sha256_hash_object.digest()
+```
+
+hash_practical.py file:
+```
+import hashlib
+data="Hello Porsche I wanna try You"
+sha256_hash = hashlib.sha256()
+print(data)
+print(data.encode()) # this will print with b as first b'Hello Porsche I wanna try You'
+
+data.encode()
+
+# to view in Raw Bytes use the following
+for byte in encoded_data:
+	print(byte, end=" ")
+
+print("\n")
+encoded_data_list = list(encoded_data)
+print(encoded_data_list)
+
+# the udpate function only acts as an input interface to the hash 
+# function(sha256 function)
+
+sha256_hash.update(encoded_data)
+
+# to view the output use the hexdigest()
+
+data_hash = sha256_hash.hexdigest()
+print(f"The hash for the data in hexadecimal : {data_hash}")
+
+# to view the binary hash
+data_hash_binary = sha256_hash.digest()
+print(f"The hash for the data in binary \n {data_hash_binary}")
+```
+
+
+### **join() method**
+the join method is used to join items in an iterable || concatenate elements of an iterable (like a list or tuple) into a single string, with a specified separator.
+Syntax: `` seperator.join([iterable])``
+
+```
+myWords = ["Jupiter", "is", "the", "larget", "planet", "in", "the", "Solar", "System"]
+
+mySentence = " ".join(myWords)
+print(mySentence)
+```
