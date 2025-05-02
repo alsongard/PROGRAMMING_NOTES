@@ -361,3 +361,84 @@ myWords = ["Jupiter", "is", "the", "larget", "planet", "in", "the", "Solar", "Sy
 mySentence = " ".join(myWords)
 print(mySentence)
 ```
+
+
+### **list methods:**
+
+
+### **``zip()``**
+
+the ``zip()`` function is used to  combine  multiple iterables, such as lists or arrays,  element by element in each of the iterables given, creating an iterator of tuples.
+```
+names=["Alice", "John", "Constantine"]
+scores=[90,91,89]
+print(list(zip(names,scores)))
+```
+If the length of the given iterables are different, it stops at the shortes one.
+
+You can zip() that is combined more than 2 lists.
+You can also use it in a for loop.
+
+```
+for name,score in zip(names,scored):
+	print(f"{name} scored {score}")
+```
+
+**You can also unzip data**
+```
+>>> names=["Alice","John","Constantine"]
+>>> scores=[90,89,91]
+>>> address=["Washington", "New Castle", "London"]
+>>> data = list(zip(names,scores,address))
+>>> data
+[('Alice', 90, 'Washington'), ('John', 89, 'New Castle'), ('Constantine', 91, 'London')]
+>>> 
+>>> newNames,newScores,newAddress = zip(*data)
+>>> print(newNames)
+('Alice', 'John', 'Constantine')
+>>> print(newScores)
+(90, 89, 91)
+>>> print(newAddress)
+('Washington', 'New Castle', 'London')
+>>> 
+```
+
+
+### **Conditions**
+if statement
+```
+if true: 
+	execute # execute only if true
+```
+
+**if else condition**
+```
+if false:
+	skip
+else:
+	execute
+```
+
+**if elif condition**
+```
+if true:
+	execute
+elif true:
+	execute
+else: 
+	execute
+```
+
+### **lambda**
+anonymous function
+```
+lambda parameter: operation
+```
+Example:
+```
+>>> add = lambda x, y : x + y
+>>> add(10,12)
+22
+```
+
+

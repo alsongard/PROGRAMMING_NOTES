@@ -320,3 +320,92 @@ the blur value specifies the blur around the element. A higher value will result
 </div>
 ```
 
+
+
+### **Scroll-Based animations**
+**Using CSS**
+in using pure css, use the following code:
+```
+<style>
+.animation-bar
+{
+	position:fixed;
+	width:100%; // animation:100vw;
+	scale: 0.5 1;
+	height:5px;
+	background-color:lime;
+	animation-name:animation-scoller;
+	animation-timeline:scroll(y); // specified in y-axis direction
+	// you could also specify in x-axis using scroll(x)
+	animation-timing-function: linear;
+}
+
+@keyframes animation-scroller{
+	to {scale: 1 1}
+}
+</style>
+<body>
+	<div class='animation-bar'></div>
+</body>
+```
+
+Here are some of the values that can be given to the ``scroll()`` function.
+```
+scroll(y) : y-axis
+scroll(x) : x-axis // REMEMBER TO SETUP width:200vw
+scroll(block) : up and donw
+scroll(inline) : left and right
+```
+
+
+For Images:
+```
+@keyframes fade-in
+{
+	from {scale: 0.5 1}
+	to {scale:  1}
+}
+.info-container > img
+{
+	animation-name: fade-in;
+	animation-timing-function: linear;
+	animation-timeline: view()
+}
+```
+You can give the view() function 2 or 1 argument;
+``view(200px)`` :  animation fade-in will take effect for the image when it's 200px above the image
+Other than using this, you could use:
+```
+animation-range-start:cover;
+animation-range-start:contain;
+```
+
+cover: 
+contain:
+entry:
+exity:
+
+preferably use cover with an  for ``animation-range-start:cover; animation-range-end:700px;``
+### **Accessibility Setting for User view motions**
+use a media-query as shown below and place in your animation keyframe or basically styles that are change on view.
+```
+@media (prefer-reduced-motion: no-preference)
+{
+	@keyframes fade-in
+	{
+	
+	}
+	.info-container > img
+	{
+		
+	}
+}
+```
+
+Horizontal bar scrolling:
+set the width of the parent element and set: ``overflow-x:auto;``
+```
+
+```
+Vertical Bar Scrolling:
+set the height of the parent element and set: ``overflow-y:auto;``

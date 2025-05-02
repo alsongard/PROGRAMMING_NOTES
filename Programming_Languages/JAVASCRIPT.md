@@ -107,10 +107,8 @@ console.log(answer);
 
 
 
-## setTimeOut() function
-
+#### **setTimeOut() function**
 the setTimeOut() takes in 2 arguments that is: a function and a time value in milliseconds.
-
 Example:
 
 ```
@@ -118,9 +116,19 @@ function myGreeting()
 {
 	console.log("Hello there my Name is : Earth");
 }
-	setTimeOut(myGreeting, 5000);
-
+setTimeOut(myGreeting, 5000);
 ```
+
+
+####  **``setInterval()`` function**
+The ``setInterval()`` function runs after some interval. it takes 2 arguments, a function and time in millisecond
+1s = 1000ms
+```
+setInterval(()=>{
+	console.log(`Running after 4 seconds`)
+}, 5000)
+```
+
 
 **Math.random()**
 the ``Math.random()`` is used to generate pseudo-random floating point numbers between `0` (inclusive) and `1` (exclusive). It does not take any arguments. However, you can manipulate its output to fit different ranges. *(by pseudo-random we mean that the values aren't entirely random, they are actually determined by a mathematical algorithm)*

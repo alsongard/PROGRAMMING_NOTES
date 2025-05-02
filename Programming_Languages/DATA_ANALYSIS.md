@@ -23,6 +23,10 @@ column_data_type = data_df["columnName"].dtype
 print(column_data_type)
 ```
 
+### **checking multiple conditions**
+```
+filted_data = data_df[data_df['age'] > 30 & data_df['profession'] == "IT"]
+```
 
 ### **cleaning data**
 ``dropna``() method
@@ -57,7 +61,10 @@ high_performing_students.sort_values(by=["marks"], ascending=False)
 ```
 
 ### **value_counts()**
-The ``value_counts()`` method returns the number of times a value has appear in a dataset.
+The ``value_counts()`` method returns the number of times a value has appear in a dataset column.
+```
+data_df['columnName'].value_counts()
+```
 
 To check the columns in the value_counts() series object use the ``.columns`` 
 Example
@@ -136,5 +143,78 @@ Name: 2, dtype: object
 ```
 
 ## **Retrieve Maximum and Minimum Values For Entire Row**
+
+To retrieve the row which has the maximum value use:
+```
+max_row = data_df[data_df["columnName]==data_df["columnName"].max()]
+print(max_row)
+
+min_row = data_df[data_df["columnName"] == data_df["columnName"].min()]
+```
+
 To retrieve the entire row for Maximum and Minimum values, we use, **`idxmax()`** and **`idxmin()`**
 
+
+## **Working with correlation**
+correlation  checks how features in a dataset associate with each other. A correlation value   near 0 mean have no corerelation(features are independent), positive value +1, strong positive correlation(one inscrease, the other increases) while negative correlation means as once increases the other decreases.
+to get the correlation we use: ``corr()`` function
+The correlation function only works with numerical data.
+```
+data_df.corr()
+```
+Use heatmap to make it more readable:
+```
+import seaborn as sns
+sns.heatmap(data_df.corr(), annot=True, cmap='')
+```
+
+
+### **Plotting counts using sns.countplot**
+To plot value_counts for a specific column we can use the ``sns.countplot()`` function to plot this data.
+```
+data_df = pd.read_csv('file_location')
+sns.countplot(x=data_df['columnName'], data=data_df, hue='ColumnName')
+```
+
+You can change the  ``x`` argument to get the different orientation for the bars.
+``x``: vertical bars
+``h`` : horizontal bars
+
+
+# VISUALIZATION IN DATA ANALYSIS
+
+there are 2 main libaries that are used in visualization:
+1. matplotlib.pyplot
+2. seaborn
+
+Matplotlib.pyplot
+```
+import matplotlib.pyplot as plt
+plt.pie(values, labels=[list] | label=['apple', 'banana], auto_pct='%1.1f%')
+```
+
+auto_pct definition:
+The `autopct` parameter in the `plt.pie()` function is used to format the percentage labels on each wedge of the pie chart. Let's break down the string `"%1.1f%%"`:
+
+- `%` : This is the percentage sign literal that will be included after the formatted number.
+- `1.1f` : This is a formatting specifier for a floating-point number. It means:
+    - `1`: Minimum width of the entire formatted field (including decimal point and digits).
+    - `.1`: Precision (number of decimal places).
+    - `f`: The 'f' character indicates that the number should be formatted as a floating-point number.
+So, `"%1.1f%%"` specifies that the percentage values should be formatted with one digit before the decimal point, one digit after the decimal point, and followed by a percentage sign.
+
+
+
+# data preprocessing
+1. Extraction
+to extract a particular value for a column we can use the str.extract() function which returns a pandas series frame.  the ``.str``  is applied to a pandas column for string objects. 
+Example:
+```
+data_df['columnName'] = data_df.str_extract(r"-(\d+)")
+```
+
+as you can see from the above code, we use regex:
+``r``: the ``r`` is used to represent raw form/string, it prevents the backslash from being interpreted as an escape character
+``\d`` : match any digit
+``()`` : defines a capturing group
+``+`` : match more than one digit
