@@ -284,7 +284,7 @@ const server = http.createServer((request, response)=>{
 })
 
 ```
-if the code above is runned you might notice that the styles or images are  not displayed. One is required to provide a link which matches with the linnk provided in the html files. Example ``<link rel="stylesheet" href="./styles.css">``
+if the code above is runned you might notice that the styles or images are  not displayed. One is required to provide a link which matches with the link provided in the html files. Example ``<link rel="stylesheet" href="./styles.css">``
 ```
 const stylePath = path.join(__dirname, "html_files", "styles.css");
 const stylePage = readFileSync(stylePath)

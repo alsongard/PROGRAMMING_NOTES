@@ -528,3 +528,18 @@ function App()
 	)
 }
 ```
+
+### **conditional Rendering**
+to perform conditional rendering in React we use the following:
+note the html code must be in parenthesis and will displayed if the condition evaluates to true
+Example:
+```
+return (
+	{formData.details === "Referall" && (
+		<div>
+			<label>Enter username:inappropriate</label>
+			<input type="text" value={formData.referallUser} name="referallUser"/>
+		</div>
+	)}
+)
+```

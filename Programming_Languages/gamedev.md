@@ -138,21 +138,12 @@ In MonoBehavior classes we do not use ``new ClassName()`` but use ``AddComponent
 ### **override existing functions**
 ```
 using UnityEngine;
-
-  
-
 public class PrinceInheritance : Player
-
 {
-
-public override void Attack()
-
-{
-
-Debug.Log("i attacked with the Dragon sword");
-
-}
-
+	public override void Attack()
+	{
+		Debug.Log("i attacked with the Dragon sword");
+	}
 }
 ```
 

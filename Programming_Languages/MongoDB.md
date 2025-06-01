@@ -4,7 +4,9 @@ Related data is stored as a single document.
 data is stored in field value pairs
 
 
-
+a database is a container for collections
+a collection is a group of related documents
+a document is a record stored in BSON format(binary JSON)
 
 
 to get started on MongoDB run :

@@ -1,4 +1,3 @@
-## Filling in missing values using the ``fillna()`` method
 When filling in values using the ``fillna()`` method, it returns a new series / Dataframe but does not modify the original list. To modify the original list use:
 ```
 import pandas as pd
@@ -218,3 +217,47 @@ as you can see from the above code, we use regex:
 ``\d`` : match any digit
 ``()`` : defines a capturing group
 ``+`` : match more than one digit
+
+
+To view all rows or columns in a dataset use:
+by default pandas truncates rows and columns if they're to long. To view all rows or columns one is required to change display setting for pandas. This is acquired by using ``pd.set_option()`` for both max_rows and max_columns.
+```
+pd.set_option('display.max_rows', None)
+pd.dataframe()
+
+pd.set_option('display.max_columns', 100) # this sets columns display to be 100
+
+pd.set_option('display.max_rows', 100) # set rows to be displayed to 100
+```
+
+Syntax: ``pd.set_option(display.max_columns/row', value|none)`` : one can combine both for row and columns: ``pd.set_option('display.max_rows`, None, 'display.max_columns', 20)``
+
+
+By default the max_rows and max_columns is 10..
+
+
+**Using IPython.display**
+The context manager is useful for temporary basis
+```
+from IPython.display import display
+with pd.option_context('display.max_columns', None, 'display.max_rows', 100):
+	print(data_df)
+```
+
+To reset the  ``pd.set_option()``
+```
+pd.reset_option('display.max_columns')
+pd.reset_option('display.max_rows')
+```
+
+
+Difference between a series and a data-frame:
+a series is a single column in a dataset while a data-frame is a combination of  multiple columns(series)
+
+
+```
+# when you have an empty column(continet) in which it's other column('location') has the data it acquires use; 
+data_df['continent'].fillna(data_df['location'])
+```
+
+### **Rearranging values for month**

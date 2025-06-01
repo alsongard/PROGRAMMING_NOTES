@@ -195,3 +195,15 @@ const data = await res.json();
 In nextjs (React with typescript), it is important to pass data types for your event handlers.
 - `handleChange()` → Accepts an **event from an input element** (`ChangeEvent<HTMLInputElement>`)
 - `handleSubmit()` → Accepts an **event from a form submission** (`FormEvent<HTMLFormElement>`)
+
+### **Sticky Header**
+```
+
+```
+
+
+### **SmallNavBar**
+```
+
+```
+
