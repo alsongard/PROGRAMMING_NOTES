@@ -308,7 +308,6 @@ function App()
 				<Routes>
 					<Route path="/" element={<div> <Header/> <Footer/> </div>}>
 						<Route index element={<Users/>}/>
-						<Route index element={<Testing/>}/>
 					</Route>
 				</Routes>
 			</BrowserRouter>

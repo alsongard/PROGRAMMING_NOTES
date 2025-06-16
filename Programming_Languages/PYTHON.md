@@ -385,7 +385,7 @@ for name,score in zip(names,scored):
 ```
 
 **You can also unzip data**
-```
+```python
 >>> names=["Alice","John","Constantine"]
 >>> scores=[90,89,91]
 >>> address=["Washington", "New Castle", "London"]
@@ -442,3 +442,258 @@ Example:
 ```
 
 
+Define class:
+
+a class is a blueprint or a template for creating objects. it defines the structure and the behavior of an object of a class. it specifies the attributes(data types,members) and methods that an object can have/access.
+
+An object is an instance of a class. it is a concrete realization of the blueprint defines by the class.
+
+a class is a special data type that defines how to build a certain type of object.
+
+to create a class do the following:
+
+```python
+class MyClass:
+x = 5
+```
+
+when creating classes by default it is recommended the first letter of the className to be in uppercase. this is for readability and to align with the PEP8 recommendations.
+
+the ``__init__()`` is an inbuilt function that is executed when an instance of a class is created(object)(constructor)
+
+example:`` singleClass = MyClass()``
+
+  
+
+the ``__init__()`` function is used to assign values to object properties/class attributes
+
+the ``self`` parameter/argument is a reference to the current instance(object) of a class and is used to access variables that belong to a class.
+
+if you have multiple instances of a class and without the ``self`` parameter, it would be difficult to differentiate which value belongs to which class attributes
+
+  
+
+```python
+class Person:
+def __init__(self, studentname, studentage):
+	self.name = studentname
+	self.age = studentage
+
+my_first_person = Person("Tony", 23)
+print(my_first_person.name)
+print(my_first_person.age)
+
+```
+
+  
+
+** ``__string__()``**
+
+the ``__string__()`` function declares the type that is going to be returned when an instance/object is treated as a string
+
+  
+
+```python
+class Student:
+def __init__(self, studentName, studentCourse, studentAge):
+	self.name = studentName
+	self.course = studentCourse
+	self.age = studentAge
+
+def __str__(self):
+	return f"student name: {self.name} :\n student course: {self.course} \n student age: {self.age}"
+
+first_student = Student("Mars", 'Computer Science', 25) 
+print(first_student)
+
+```
+
+  
+
+**Class Methods**
+
+a class can also contain methods. When a function is defined in a class it is refered to as a method.
+
+```python
+class Student:
+def __init__(self, studentName, studentCourse, studentAge):
+	self.name = studentName
+	self.course = studentCourse
+	self.age = studentAge
+
+def greet(self):
+	print(f"Hello my name is {self.name}, i study {self.course} and I'm {self.age} years old.")
+
+
+def __str__(self): # function that is called when an object is treated as a string
+	return f"{self.name} {self.course} {self.age}"
+
+first_student = Student("Mars", 'Computer Science', 25)
+
+first_student.greet()
+print(first_student)
+
+```
+
+**object properties Modification**
+
+You can also modify an object attributes/properties as show below:
+
+```python
+class Sports:
+def __init__(self, sportCategory, sportName, sportScore):
+	self.category = sportCategory
+	self.name = sportName
+	self.score =sportScore
+
+  
+
+def sportDetails(self):
+	print(f"The sports played today is for the {self.category} and the name is {self.name} and the score is {self.score}")
+
+  
+sports_one = Sports("Males", "Footballs", 3)
+sports_one.sportDetails()
+
+# using the del keyword to delete an object property
+del sports_one.score
+sports_one.sportDetails()
+
+```
+
+To delete an object use the: ``del objectName``
+
+  
+  
+
+**Inheritance**:
+
+in Object Oriented Language, inheritance is the ability of a class to inherit the properties of another classes refered to as the parent or base class. The class that inherits properties such as methods and attributes is refered as the derived or child class.
+
+  
+
+Example 1:
+
+```python
+class Person:
+def __init__(self, personName, personAge):
+	self.name = personName
+	self.age = personAge
+	  
+
+def personDetails(self):
+	print(f"The user details are {self.name} and {self.age}")
+
+class Student(Person):
+	pass
+```
+
+in the above example the Student class has access to everything that the Base class Person has. It uses the ``__init__()`` of the base class
+
+```python
+my_first_student = Student("james", 54)
+my_first_student.personDetails()
+```
+
+  
+
+Example 2:
+
+Overriding the ``__init__()`` function of the parent class, though not wise and can lead to problems if the class Variables are different.
+
+```python
+class Student(Person):
+def __init__(self, studentName, studentAge):
+	self.studentName = studentName
+	self.studentAge = studentAge
+
+```
+
+in the above example trying to run an object of student while accessing the ``personDetails()`` function will result in an error as the variable names defer.
+
+  
+
+Example 3:
+
+inheritance with no overrides use ``ClassName.__init__(self, variableNameChildClass)``
+
+```python
+def __init__(self, personName, personAge):
+	self.name = personName
+	self.age = personAge
+
+def personDetails(self):
+	print(f"The user details are {self.name} and {self.age}")
+
+
+class Student(Person):
+	def __init__(self, studentName, studentAge):
+		Person.__init__(studentName, studentAge)
+
+# inherit everything
+# pass studentName, studentAge which will be passed to self.name, self.age in base class
+
+# create student instance
+my_first_student = Student("James", 54)
+my_first_student.personDetails()
+
+print(my_first_student.age)
+```
+
+  
+
+Example 4:
+To better access or inherit all properties from the parent/base class use super
+```python
+class Person:
+def __init__(self, personName, personAge):
+	self.name = personName
+	self.age = personAge
+
+  
+
+def personDetails(self):
+	print(f"The user details are {self.name} and {self.age}")
+
+class Student(Person):
+	def __init__(self, studentName, studentAge):
+		super().__init__(studentName, studentAge)
+	# inherit everything
+	# pass studentName, studentAge which will be passed to self.name, self.age in base class
+  
+# create student instance
+my_first_student = Student("James", 54)
+my_first_student.personDetails()
+
+print(my_first_student.age)
+```
+
+### ``**rstrip()**``
+The ``rstrip()`` method is used trailing characters in a string.  If no characters(argument) is supplied, it removes the trailing spaces.
+```python
+>>> example_b = "Tennessee"
+>>> char_rstrip_example = example_b.rstrip("e") # removing trailing characters if no argument is given removes space
+>>> char_rstrip_example
+'Tenness'
+>>> example_b = "Tennesseess"
+>>> char_rstrip_example = example_b.rstrip("s") # removing trailing characters if no argument is given removes space
+>>> char_rstrip_example
+'Tennessee'
+
+
+>>> my_word = "Happiness      "
+>>> my_word.rstrip()
+'Happiness'
+```
+
+
+### **split()**
+the ``split()`` function is used to convert a string into an array of strings. By default if no argument/ delimeter is provided the string is split based on whitespace. One can also provide a delimeter. 
+```python
+>>> mysentence.split(" ")
+['I', 'said', 'am', 'fighter']
+
+>>> myNumbers = "1, 2, 3, 4, 5"
+>>> myNumbers.split(',')
+['1', ' 2', ' 3', ' 4', ' 5']
+```

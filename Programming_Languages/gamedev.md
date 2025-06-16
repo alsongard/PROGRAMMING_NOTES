@@ -1,7 +1,7 @@
 Coroutines
 Coroutines are used to delay something in a game. Example: when racing, you could set a timer for delaying the message " start race"
 To use coroutines use:
-```
+```csharp
 IEnumerator ExecuteSomething()
 {
 	yield return new WaitForSeconds(2)
@@ -11,7 +11,7 @@ IEnumerator ExecuteSomething()
 
 The value passed to the ``yield return new WaitForSeconds(VALUE)`` can be a float or integer
 Using dynamic or argument
-```
+```csharp
 IEnumerator ExecuteSomething(int value)
 {
 	yield return new WaitForSeconds(value)
@@ -24,15 +24,12 @@ you can have multiple yields :
 
 ### **classes**
 the sytnax for delcaring classes is:
-```
-accessModifier class NameOfClass
-{
-
-}
+```csharp
+accessModifier class NameOfClass{}
 ```
 
 the accessModifier are private, public, protected
-```
+```csharp
 public class Player
 {
 	Debug.Log("Hi am new class == Player"); 
@@ -47,7 +44,7 @@ private == variables, functions that can only be accessed within the class thy'r
 protected
 **accessing private variables**
 
-```
+```csharp
 public getHealth()
 {
 	return health // health is a private variable
@@ -57,7 +54,7 @@ public getHealth()
 **accessibility modfiers**
 getters and setters
 in getters and setters we use variables previously we used a function to access private variables
-```
+```csharp
 public class Player
 {
 	private int _health;
@@ -80,7 +77,7 @@ accessing variables and functions from another class
 when inheriting from the base class a requirement for the base class is to have a constructor
 Example:
 player.cs file
-```
+```csharp
 public class Player
 {
 	public void Player {} // the constructor can be empty
@@ -89,11 +86,9 @@ public class Player
 
 main.cs file
 Syntax for inheritance : ``AccessModifier class ChildClassName : ParentClassName`` 
-```
+```csharp
 public class Warrior : Player
-{
-
-}
+{}
 ```
 
 in c# constructors are not inherited
@@ -101,10 +96,9 @@ In Unity `MonoBehaviour` classes  cannot have constructors with parameters
 Instead of using a constructor, **use an `Initialize` method** or set the properties manually.
 You cannot use ``new Player()`` because Player is a MonoBehaviour. Instead, use A``ddComponent<Player>()``.
 
-```
+```csharp
 GameObject enemyObject = new GameObject("Enemy");
 Player enemy_1 = enemyObject.AddComponent<Player>();
-
 
 GameObject warriorObject = new GameObject("Warrior");
 Player Warrior = warriorObject.AddComponent<Player>();
@@ -116,7 +110,7 @@ Player dragonLord = dragonLordObject.AddComponent<Player>();
   
 
 in Player.cs instread of using a constructor use an ``Initialize()`` function
-```
+```csharp
 public class Player ; MonoBehavior
 {
 	public int health;	
@@ -133,10 +127,8 @@ public class Player ; MonoBehavior
 
 In MonoBehavior classes we do not use ``new ClassName()`` but use ``AddComponent<ClassName>()``
 
-
-
 ### **override existing functions**
-```
+```csharp
 using UnityEngine;
 public class PrinceInheritance : Player
 {
@@ -148,8 +140,7 @@ public class PrinceInheritance : Player
 ```
 
 
-
-```
+```csharp
 public virtual void Attack()
 {
 	Debug.Log("The " + username + " is attacking");
