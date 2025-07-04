@@ -359,7 +359,7 @@ DELETE : delete data
 ## EXPRESS
 First install express : ``npm i express --save`` then followed by:
 To display or write data use: ``response.send()``
-```
+```js
 const express = require("express");
 
 const app = express() // const server = http.createServer()
@@ -382,7 +382,7 @@ app.listen(5000, ()=>{
 
 The following code has the same defect in that for any links such as styles and images need to be given in 
 their own app.get() function and the url to be the same with that of the browser link in html code in inspection 
-```
+```js
 app.get("/index.html", (request, response)=>{
     response.sendFile(path.join(__dirname, "html_files", "index.html"))
 })
@@ -392,7 +392,7 @@ To resolve this problem we place external files to a static folder called public
 Also you can host other pages by using th app.get() function
 
 Example:
-```
+```js
 const path = require("path")
 const express = require("express")
 const app = express()
@@ -433,7 +433,7 @@ To send  html we use response.send()
 **APIS**  
 Setting up a localhost api.
 To setup localhost api first have some data on your file then do the following:
-```
+```js
 // using express
 const express = require("express");
 const app = express();
@@ -488,7 +488,7 @@ Very helpfull in express when extracting a sample of data from a group.
 route are parameters that are given to the url.
 
 Example : Using Route
-```
+```js
 const express = require("express");
 const app = express();
 
@@ -521,7 +521,7 @@ Example:
 ``localhost:5000/product/living%20room``
 
 For multiple parameters we use the backslash (/) to seperate the parameters.
-```
+```js
 app.get("/api/products/:category/:id", (request, response)=>{
     const {category, id} = request.params;
     const productFound = producctData.map((productItem)=>{
@@ -544,7 +544,7 @@ app.get("/api/products/:category/:id", (request, response)=>{
 sends small information to the servers using the url
 used for querying the database or filtering the results.
 if no query is given it will display the whole productData.
-```
+```js
 app.get("/api/products/query", (request, response)=>{
     console.log(request.query);
     response.send("<h1>Welcome to Query Strings</h1>");
@@ -558,7 +558,7 @@ to work with multiple queries use the ampersand (&):
 
 ## working with middlware:
 req ==> middleware ==> response
-```
+```js
 const express = require("express");
 const app  = express();
 function logger()
@@ -576,7 +576,7 @@ app.get("/", (request, logger, response)=>{
 ```
 In the above code the page continously loads, to prevent this one can either send a response in the  or pass a ``next()`` middleware.
 *Example 1:*
-```
+```js
 function logger(request, response, next){
     const url = request.url;
     const method = request.method;
@@ -615,7 +615,7 @@ app.get("/about", logger, (request, response)=>{
 adding middleware function to many `` app.get()`` routes we use ``app.use()``. It prevents the adding of  the middleware to each app.get() function.
 
 move logger function to another file: 11-logger-function.js
-```
+```js
 function logger(request, response, next)
 {
     const url = request.url;
@@ -629,7 +629,7 @@ module.exports = logger;
 ```
 
 in app.js file: remember to follow the order
-```
+```js
 const express = require("express");
 const app = express();
 const logger = require("11-logger-function.js");
@@ -646,7 +646,7 @@ app.get("/about", (request, response)=>{
 *PREVIOUSLY WE NEEDED TO PASS the logger function(middleware) to each app.get() Route*  
 
 OR
-```
+```js
 const express = require("express");
 const app = express();
 const logger = require("11-logger-function.js");
@@ -682,7 +682,7 @@ module.exports = authorize;
 ```
 
 In app.js file:
-```
+```js
 const express = require("express");
 const app = express();
 app.use([new_logger, authorize]);
@@ -695,7 +695,7 @@ app.get("/api/products", (request, response)=>{
 
 ```
 You could also pass more than 1 middleware directly to the function without using app.get() function
-```
+```js
 app.get("/", [new_logger, authorize], (response,request)=>{
     response.send("<h1>HomePage</h1>")
 })
@@ -716,7 +716,7 @@ when using static() middleware and no app.get() function  has been set to the ho
 6. Traditional Form Data Submission
 Steps:
 create html file with the following
-```
+```js
 <form action="/login" method="POST">
     <input type="text">
     <input type="submit" value="submit">
@@ -725,14 +725,14 @@ create html file with the following
 ```
 On submit if you haven't specified the ``/login`` url in app.js file you will get the error ``Cannot get /login 404``
 It is required for one to create a route for the given url in app.js file
-```
+```js
 app.post("/login", (request, response)=>{
     response.send("POST working");
 });
 ```
 
 To get the data we are required to use a middleware:
-```
+```js
 app.use(express.urlencoded({extended: false}));
 // to access the data we:
 app.post("/login", (request, response)=>{
@@ -753,7 +753,7 @@ step 2: create result div
 step 3: display the data from "/api/people" using axios get method.
 step 4: take user data using post method.
 step 5: display new user input data using appendChild
-```
+```js
 <form>
     <input type="text" name="name" id="name" class="form-input" placeholder="Enter fullname..."/>
     <small class="form-alert"></small>
@@ -842,7 +842,7 @@ step 5: display new user input data using appendChild
 ```
 
 in app.js file we add the given route for the form submission
-```
+```js
 app.post("/api/people", (request, response)=>{
     res.status(201).send("Success");
 })
@@ -850,7 +850,7 @@ app.post("/api/people", (request, response)=>{
 
 *Now to handle the data being submitted in the javascript form we use:*
 Later on use the following:
-```
+```js
 app.post("/api/people", (request, response)=>{
     const {name} = request.body;
     // console.log(`Type of request body is : ${request.body} and data is : ${request.body}`)
@@ -884,7 +884,7 @@ in aut.js and people.js file replace:
 ``app`` with ``router``
 Example:
 auth.js file
-```
+```js
 const express = require("express");
 const router = express.Router();
 router.get("/", (request, response)=>{
@@ -910,13 +910,13 @@ app.use("/auth", login);
 
 # controllers
 create folder **controllers** and within create **people.js** file. create several functions and copy each route to the givenFunctions.
-```
+```js
 -controllers
     -people.js
 ```
 
 people.js file:  
-```
+```js
 const getPeople = (request, response)=>{
 
 }
@@ -938,7 +938,7 @@ module.exports =  {
 ```
 In each of the above function copy app routes form *../routes/peoeple.js*.
 In **./routes/people.js** do the following:
-```
+```js
 
 const {
     getPeople,
@@ -951,4 +951,357 @@ router.post("/", createPerson);
 router.post("/postman", createPersonPostman);
 router.put("/:id", updatePerson);
 router.delete("/:id", deletePerson)
+```
 
+
+## hosting your backend in vercel
+1. setup your cross origin resource sharing in server.js/index.js file properly
+```js
+const express = require("express");
+const app = express();
+const Task = require("./models/tasks.model.js");
+const cors = require('cors');
+require("dotenv").config()
+const path = require("node:path");
+const mongoose = require("mongoose");
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+const corsOptions = {
+origin: function (origin, callback)
+{
+// 1. Handle non-production environment FIRST
+if (process.env.NODE_ENV !== "production") {
+console.log(`[DEV] Allowing origin: ${origin}`);
+return callback(null, true); // RETURN after callback
+}
+const AllowedDomains = [
+"https://my-tasks-project.vercel.app",
+"http://localhost:5173"
+]
+// to allow request with no origin: that is postman or curl
+if (!origin)
+{
+return callback(null, true);
+}
+if (AllowedDomains.indexOf(origin) !== -1)
+{
+callback(null, true); // alow origin
+}
+else
+{
+callback( new Error(`Origin: ${origin} not allowed by CORS. Check server to allow domain`), false);
+}
+},
+methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+allowedHeaders: ["Content-Type", "Authorization"],
+credentials: true
+};
+app.options('/{*any}', cors(corsOptions));
+app.use(cors(corsOptions));
+app.use((req, res, next) => {
+
+// Manually set headers for all responses
+res.header("Access-Control-Allow-Origin",
+process.env.NODE_ENV === "production"
+? "https://my-tasks-project.vercel.app"
+: "*");
+res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
+res.header("Access-Control-Allow-Credentials", "true");
+next();
+});
+
+// app.options("*",cors(corsOptions)); // preflight option request: usefull for security and enables the browser
+// to request the resource from the backend before sending or getting the data(formVerification)
+
+// error handling middleware
+
+app.use((err, req, res, next)=>{
+console.log(`Server error: ${err.stack}`);
+res.send("<h1>Server Error </h1>");
+})
+
+app.use(express.static("public"));
+
+app.get("/", (req, res)=>{
+return res.sendFile(path.join(__dirname,'public', 'index.html'))
+})
+
+// get all tasks === working successfully
+// app.get("/tasks", async (req, res)=>{
+app.get("/tasks", async (req, res)=>{
+try
+{
+const allTasks = await Task.find();
+console.log(allTasks);// works
+return res.status(200).json(allTasks);
+}
+catch(err)
+{
+console.log(`error ${err.message}`);
+return res.status(401).json({success: false, msg: `Error : ${err.message}`});
+}
+})
+
+  
+
+// get task based on Id == working successfully
+
+// app.get("/task/:id", async (req, res)=>{
+
+app.get("/task/:id", async (req, res)=>{
+
+const {id} = req.params;
+
+  
+
+console.log(`This is id ${id}`);
+
+try
+
+{
+
+//filter data
+
+const foundTask = await Task.findById(id);
+
+if (foundTask)
+
+{
+
+console.log(foundTask);
+
+return res.status(200).json(foundTask);
+
+}
+
+else
+
+{
+
+return res.status(301).json({success: false, msg: `No product found with the id : ${id}`});
+
+}
+
+}
+
+catch(err)
+
+{
+
+console.log(`Error : ${err}`);
+
+return res.json({success: false, msg: `Error : ${err}`});
+
+}
+
+});
+
+  
+  
+
+// update modify task
+
+// app.put("/task/:id", async (req, res)=>{
+
+app.put("/task/:id", async (req, res)=>{
+
+const {id} = req.params;
+
+console.log(req.body)
+
+try
+
+{
+
+const taskUpdated = await Task.findByIdAndUpdate(id, req.body);
+
+if (taskUpdated)
+
+{
+
+// console.log(taskUpdated);
+
+const updatedTask = await Task.findById(id)
+
+return res.status(200).json(updatedTask);
+
+}
+
+else
+
+{
+
+console.log(taskUpdated);
+
+return res.status(404).json({success: false, msg: `Task with id ${id} not updated`})
+
+}
+
+}
+
+catch(err)
+
+{
+
+console.log(`Error : ${err.message}`);
+
+return res.status(401).json({success: false, msg: `Error : ${err.message}`})
+
+}
+
+})
+
+  
+  
+  
+
+// delete Task == working successfully
+
+app.delete("/task/:id", async (req, res)=>{
+
+const {id} = req.params;
+
+  
+
+try
+
+{
+
+const foundProduct = await Task.findByIdAndDelete(id);
+
+if (foundProduct)
+
+{
+
+console.log(foundProduct);
+
+return res.status(200).json({msg: `Product with id : ${id} has been successful deleted`});
+
+}
+
+else
+
+{
+
+return res.status(404).json({success:false, msg:`No product with the id : ${id} found`})
+
+}
+
+}
+
+catch(err)
+
+{
+
+console.log(`Error: ${err.message}`)
+
+return res.status(401).json({success: false, msg: `Error: ${err.message}`})
+
+}
+
+});
+
+  
+  
+  
+  
+
+// add tasks == working
+
+// app.post("/task", async (req, res)=>{
+
+app.post("/task", async (req, res)=>{
+
+console.log(req.body);
+
+try
+
+{
+
+  
+
+const taskCreatedData = await Task.create(req.body);
+
+console.log(taskCreatedData);
+
+return res.status(200).json(taskCreatedData)
+
+}
+
+catch(err)
+
+{
+
+console.log(`Error : ${err.message}`);
+
+}
+
+});
+
+  
+  
+  
+
+const portNumber = 5001;
+
+const secret = process.env.TASK_SECRET;
+
+const user = process.env.TASK_USER;
+
+  
+
+const connectMongoDB = async ()=>{
+
+  
+
+try
+
+{
+
+  
+
+await mongoose.connect(`mongodb+srv://${user}:${secret}@cluster0.iqbumv5.mongodb.net/tasks?retryWrites=true&w=majority&appName=Cluster0`)
+
+console.log("Connected To Database");
+
+if (!process.env.VERCEL)
+
+{
+
+app.listen(portNumber, ()=>{
+
+console.log(`Server is listening on port ${portNumber}`);
+
+})
+
+}
+
+}
+
+catch(err)
+
+{
+
+console.log("Failed to connect");
+
+console.log(`Error : ${err.message}`);
+
+process.exit(1);
+
+}
+
+  
+
+}
+
+connectMongoDB();
+
+  
+
+module.exports = app;
+```
+1. add vercel.json file with the following:
+```
+
+```
